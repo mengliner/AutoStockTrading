@@ -19,7 +19,7 @@ class MySQLClient:
         temp_config = self.config.copy()
         temp_config.pop("database")
         try:
-            conn = pymysql.connect(**temp_config)
+            conn = pymysql.connect(** temp_config)
             cursor = conn.cursor()
             cursor.execute(f"CREATE DATABASE IF NOT EXISTS {self.config['database']} DEFAULT CHARSET {self.config['charset']}")
             conn.commit()
@@ -90,7 +90,7 @@ class MySQLClient:
         """上下文管理器：自动关闭"""
         self.close()
 
- # -------------------------- 基础CRUD操作 --------------------------
+    # -------------------------- 基础CRUD操作 --------------------------
     def execute(self, sql: str, params: Optional[Tuple] = None) -> int:
         """
         执行单条SQL（增/删/改）
@@ -251,100 +251,25 @@ class MySQLClient:
             return True
         except Error as e:
             self.connection.rollback()
-            raise Exception(f"❌ 创建表{table_name}失败: {e} | SQL: {create_sql}")
 
-    def drop_table(self, table_name: str, if_exists: bool = True) -> bool:
-        """
-        删除数据表
-        :param table_name: 表名
-        :param if_exists: 是否添加IF EXISTS
-        :return: 删除结果（True/False）
-        """
-        drop_sql = f"DROP TABLE {'IF EXISTS' if if_exists else ''} {table_name}"
-        try:
-            self.cursor.execute(drop_sql)
-            self.connection.commit()
-            print(f"✅ 表{table_name}删除成功")
-            return True
-        except Error as e:
-            self.connection.rollback()
-            raise Exception(f"❌ 删除表{table_name}失败: {e} | SQL: {drop_sql}")
+    # 新增用户相关方法
+    def get_user_by_username(self, username: str) -> Optional[Dict]:
+        sql = "SELECT * FROM user WHERE username = %s"
+        return self.query_one(sql, (username,))
 
-    def truncate_table(self, table_name: str) -> bool:
-        """
-        清空数据表（保留表结构）
-        :param table_name: 表名
-        :return: 清空结果（True/False）
-        """
-        truncate_sql = f"TRUNCATE TABLE {table_name}"
-        try:
-            self.cursor.execute(truncate_sql)
-            self.connection.commit()
-            print(f"✅ 表{table_name}清空成功")
-            return True
-        except Error as e:
-            self.connection.rollback()
-            raise Exception(f"❌ 清空表{table_name}失败: {e} | SQL: {truncate_sql}")
+    def create_user(self, username: str, password_hash: str) -> bool:
+        sql = "INSERT INTO user (username, password_hash) VALUES (%s, %s)"
+        return self.execute(sql, (username, password_hash)) > 0
 
-    # -------------------------- 事务操作 --------------------------
-    def begin_transaction(self):
-        """手动开启事务"""
-        self.connection.begin()
-        print("🔄 事务已开启")
+    # 新增收藏相关方法
+    def add_favorite(self, user_id: int, ts_code: str) -> bool:
+        sql = "INSERT IGNORE INTO favorite (user_id, ts_code) VALUES (%s, %s)"
+        return self.execute(sql, (user_id, ts_code)) > 0
 
-    def commit_transaction(self):
-        """手动提交事务"""
-        self.connection.commit()
-        print("✅ 事务已提交")
+    def remove_favorite(self, user_id: int, ts_code: str) -> bool:
+        sql = "DELETE FROM favorite WHERE user_id = %s AND ts_code = %s"
+        return self.execute(sql, (user_id, ts_code)) > 0
 
-    def rollback_transaction(self):
-        """手动回滚事务"""
-        self.connection.rollback()
-        print("🔙 事务已回滚")
-
-    # -------------------------- 通用工具方法 --------------------------
-    def get_table_fields(self, table_name: str) -> List[str]:
-        """获取表的字段列表"""
-        try:
-            self.cursor.execute(f"DESCRIBE {table_name}")
-            fields = [col["Field"] for col in self.cursor.fetchall()]
-            print(f"✅ 获取表{table_name}字段: {fields}")
-            return fields
-        except Error as e:
-            raise Exception(f"❌ 获取表字段失败: {e} | 表名: {table_name}")
-
-    def check_table_exists(self, table_name: str) -> bool:
-        """检查表是否存在"""
-        try:
-            self.cursor.execute(
-                f"SELECT COUNT(*) as count FROM information_schema.TABLES WHERE TABLE_SCHEMA = %s AND TABLE_NAME = %s",
-                (self.config["database"], table_name)
-            )
-            result = self.cursor.fetchone()["count"] > 0
-            print(f"✅ 表{table_name}存在: {result}")
-            return result
-        except Error as e:
-            raise Exception(f"❌ 检查表存在性失败: {e} | 表名: {table_name}")
-        """批量插入DataFrame数据到MySQL"""
-        if df.empty:
-            print("⚠️ 无数据可插入")
-            return
-        
-        # 获取列名和占位符
-        columns = df.columns.tolist()
-        print(columns)
-        placeholders = ", ".join(["%s"] * len(columns))
-        insert_sql = f"INSERT INTO {table_name} ({', '.join(columns)}) VALUES ({placeholders})"
-        print(insert_sql)
-        # 转换DataFrame为元组列表
-        data = [tuple(row) for row in df.values]
-        
-        try:
-            # 批量执行（提高效率）
-            self.cursor.executemany(insert_sql, data)
-            print(f"✅ 成功插入{len(data)}条数据到{table_name}")
-        except Error as e:
-            self.connection.rollback()
-            raise Exception(f"插入数据失败: {e}")
-
-
+    def get_user_favorites(self, user_id: int) -> List[Dict]:
+        sql = "SELECT ts_code FROM favorite WHERE user_id = %s"
+        return self.query_all(sql, (user_id,))
