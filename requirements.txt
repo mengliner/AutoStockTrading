@@ -1,0 +1,5 @@
+tushare==1.2.89
+pymysql==1.1.0
+python-dotenv==1.0.0
+pandas==2.1.4
+numpy==1.26.4

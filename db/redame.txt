@@ -1,0 +1,12 @@
+execute	单条增 / 删 / 改操作（支持参数化 SQL）	单条数据插入 / 更新 / 删除、执行 DDL 语句
+query_one	查询单条数据（返回字典）	根据主键查询单条记录（如查单只股票信息）
+query_all	查询所有数据（返回字典列表）	小数据量全量查询（如查询某股票所有日 K）
+query_paginate	分页查询（返回总数 + 分页数据）	大数据量分页展示（如分页查所有股票列表）
+batch_execute	批量执行 SQL（如批量插入 / 更新）	批量处理多条数据（性能优于单条循环）
+insert_data	优化版 DataFrame 批量插入（分批次 + 字段过滤 + 空值处理）	Tushare/CSV 数据批量写入 MySQL
+create_table	创建数据表（兼容 IF NOT EXISTS）	初始化表结构
+drop_table	删除数据表（支持 IF EXISTS）	清理无用表
+truncate_table	清空数据表（保留结构）	重置表数据
+begin/commit/rollback_transaction	手动事务控制	多步操作原子性保障（如先删后插）
+get_table_fields	获取表字段列表	动态适配字段、数据清洗
+check_table_exists	检查表是否存在	前置校验（如插入前确认表存在）
