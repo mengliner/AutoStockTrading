@@ -21827,3 +21827,42 @@ Index: []
 2025-12-15 21:58:29,270 - utils.log_utils - INFO - 程序启动
 2025-12-16 00:48:13,143 - utils.log_utils - INFO - 程序启动
 2025-12-16 00:48:17,119 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:08:12,904 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:08:14,124 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:11:20,544 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:11:21,545 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:11:32,011 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "D:\ProgramData\miniconda3\envs\autoCG\lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2025-12-16 09:17:32,060 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:17:33,060 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:19:52,442 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:19:53,461 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:41:15,582 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:41:21,024 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:41:21,728 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:44:48,221 - utils.log_utils - INFO - 程序启动
+2025-12-16 09:44:49,251 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:20:59,147 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:20:59,890 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:30:19,663 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:33:31,345 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 10:33:31,346 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 10:33:31,346 - utils.log_utils - ERROR - Token解码失败：<attribute 'args' of 'BaseException' objects>
+2025-12-16 10:34:35,212 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 10:34:35,212 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 10:34:35,213 - utils.log_utils - ERROR - Token解码失败：<attribute 'args' of 'BaseException' objects>
+2025-12-16 10:35:26,428 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:39:20,534 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:39:31,937 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:40:40,873 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 10:40:40,873 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 10:40:40,874 - utils.log_utils - ERROR - Token解码失败：Subject must be a string.
+2025-12-16 10:42:28,861 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:42:58,503 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:43:07,132 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 10:43:07,133 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 10:43:07,133 - utils.log_utils - ERROR - Token解码失败：Subject must be a string.
+2025-12-16 10:44:50,454 - utils.log_utils - INFO - 程序启动
