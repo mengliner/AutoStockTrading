@@ -1,3 +1,11 @@
+'''
+Author: mengliner 1219948661@qq.com
+Date: 2025-12-15 16:37:15
+LastEditors: mengliner 1219948661@qq.com
+LastEditTime: 2025-12-16 09:19:42
+FilePath: \AutoStockTrading\api\auth.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from passlib.context import CryptContext
@@ -15,11 +23,14 @@ def create_access_token(data: dict):
     to_encode.update({"exp": expire})
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
 
-def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
-
-def get_password_hash(password):
+def get_password_hash(password: str) -> str:
+    """生成密码哈希（极简版，避免参数错误）"""
+    # 直接传入字符串，passlib会自动转bytes并处理bcrypt限制
     return pwd_context.hash(password)
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """验证密码"""
+    return pwd_context.verify(plain_password, hashed_password)
 
 # 依赖：获取当前登录用户
 from fastapi import Depends, HTTPException, status
