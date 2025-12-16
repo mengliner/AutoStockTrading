@@ -28,6 +28,7 @@ def get_stock_kline(ts_code: str, start_date: str, end_date: str, user=Depends(g
 @router.post("/favorite/{ts_code}")
 def add_favorite(ts_code: str, user=Depends(get_current_user)):
     with MySQLClient() as db:
+        # user["id"] 是字符串，直接传入
         if db.add_favorite(user["id"], ts_code):
             return {"message": "收藏成功"}
         raise HTTPException(status_code=400, detail="已收藏或操作失败")

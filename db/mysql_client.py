@@ -4,7 +4,7 @@ from pymysql import Error
 from typing import List, Dict, Tuple, Optional, Any
 from config.db_config import DB_CONFIG
 from utils.log_utils import logger
-
+import uuid
 class MySQLClient:
 
     def __init__(self):
@@ -253,21 +253,43 @@ class MySQLClient:
             self.connection.rollback()
 
     # 新增用户相关方法
+    # 新增create_user方法（若不存在）
+    def create_user(self, user_id: str, username: str, password_hash: str) -> bool:
+        """创建用户（插入字符串ID）"""
+        sql = """
+        INSERT INTO user (id, username, password_hash) 
+        VALUES (%s, %s, %s)
+        """
+        try:
+            self.execute(sql, (user_id, username, password_hash))
+            return True
+        except Exception as e:
+            logger.error(f"创建用户失败: {e}")
+            return False
+
+    # 修改get_user_by_username方法（确保查询逻辑兼容字符串ID）
     def get_user_by_username(self, username: str) -> Optional[Dict]:
-        sql = "SELECT * FROM user WHERE username = %s"
-        return self.query_one(sql, (username,))
-
-    def create_user(self, username: str, password_hash: str) -> bool:
-        sql = "INSERT INTO user (username, password_hash) VALUES (%s, %s)"
-        return self.execute(sql, (username, password_hash)) > 0
-
+        return self.query_one(
+            "SELECT id, username, password_hash, role FROM user WHERE username = %s",
+            (username,)
+        )
     # 新增收藏相关方法
     def add_favorite(self, user_id: int, ts_code: str) -> bool:
-        sql = "INSERT IGNORE INTO favorite (user_id, ts_code) VALUES (%s, %s)"
-        return self.execute(sql, (user_id, ts_code)) > 0
+        favorite_id = str(uuid.uuid4()).replace("-", "")  # 例如："a1b2c3d4e5f6..."
+        sql = """
+            INSERT INTO favorite (id, user_id, ts_code) 
+            VALUES (%s, %s, %s)
+        """
+        logger.info(f"入参: {favorite_id}、{user_id}、{ts_code}")
+        try:
+            self.execute(sql, (favorite_id, user_id, ts_code))
+            return True
+        except Exception:
+            return False
 
-    def remove_favorite(self, user_id: int, ts_code: str) -> bool:
-        sql = "DELETE FROM favorite WHERE user_id = %s AND ts_code = %s"
+    def remove_favorite(self, user_id: str, ts_code: str) -> bool:
+        # 若通过user_id和ts_code删除（当前逻辑），无需修改；若通过id删除，需确保参数为字符串
+        sql = "DELETE FROM favorite WHERE user_id=%s AND ts_code=%s"
         return self.execute(sql, (user_id, ts_code)) > 0
 
     def get_user_favorites(self, user_id: int) -> List[Dict]:

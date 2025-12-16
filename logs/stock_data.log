@@ -21866,3 +21866,119 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-12-16 10:43:07,133 - utils.log_utils - INFO - 开始解码Token
 2025-12-16 10:43:07,133 - utils.log_utils - ERROR - Token解码失败：Subject must be a string.
 2025-12-16 10:44:50,454 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:45:28,036 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:46:47,578 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:46:48,330 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:46:53,587 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 10:46:53,588 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 10:46:53,588 - utils.log_utils - ERROR - Token解码失败：Subject must be a string.
+2025-12-16 10:49:01,877 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:49:02,644 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:50:25,681 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:50:26,789 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:50:27,387 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 10:50:27,388 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 10:50:27,388 - utils.log_utils - ERROR - Token解码失败：Subject must be a string.
+2025-12-16 10:50:38,507 - utils.log_utils - INFO - 程序启动
+2025-12-16 10:50:47,190 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 10:50:47,191 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 10:50:47,191 - utils.log_utils - ERROR - Token解码失败：Subject must be a string.
+2025-12-16 12:12:25,169 - utils.log_utils - INFO - 程序启动
+2025-12-16 12:12:26,261 - utils.log_utils - INFO - 程序启动
+2025-12-16 12:12:28,526 - utils.log_utils - INFO - 程序启动
+2025-12-16 12:13:46,472 - utils.log_utils - INFO - 程序启动
+2025-12-16 12:13:47,219 - utils.log_utils - INFO - 程序启动
+2025-12-16 12:14:10,030 - utils.log_utils - INFO - 程序启动
+2025-12-16 12:15:33,304 - utils.log_utils - INFO - 程序启动
+2025-12-16 12:15:34,055 - utils.log_utils - INFO - 程序启动
+2025-12-16 12:17:15,864 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 12:17:15,865 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 12:17:15,865 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 12:17:15,865 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 12:17:15,895 - utils.log_utils - INFO - 用户test通过Token认证，访问/me接口
+2025-12-16 12:20:18,809 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 12:20:18,811 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 12:20:18,811 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 12:20:18,811 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 12:21:11,678 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 12:21:11,678 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 12:21:11,679 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 12:21:11,679 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 13:53:17,223 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 13:53:17,223 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 13:53:17,223 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 13:53:17,223 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 13:53:17,253 - utils.log_utils - INFO - 用户test通过Token认证，访问/me接口
+2025-12-16 13:54:22,579 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 13:54:22,579 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 13:54:22,579 - utils.log_utils - ERROR - Token解码失败：Invalid crypto padding
+2025-12-16 13:54:24,641 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 13:54:24,641 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 13:54:24,642 - utils.log_utils - ERROR - Token解码失败：Invalid crypto padding
+2025-12-16 13:54:36,386 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 13:54:36,386 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 13:54:36,387 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 13:54:36,387 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 13:54:36,429 - utils.log_utils - INFO - 用户test通过Token认证，访问/me接口
+2025-12-16 13:55:00,384 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 13:55:00,384 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 13:55:00,384 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 13:55:00,385 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 13:59:54,532 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 13:59:54,533 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 13:59:54,533 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 13:59:54,533 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:07:33,729 - utils.log_utils - INFO - 程序启动
+2025-12-16 14:09:21,590 - utils.log_utils - INFO - 程序启动
+2025-12-16 14:10:00,501 - utils.log_utils - INFO - 程序启动
+2025-12-16 14:10:11,917 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:10:11,917 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:10:11,918 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 14:10:11,918 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:10:31,382 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:10:31,382 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:10:31,383 - utils.log_utils - ERROR - Token解码失败：Signature has expired.
+2025-12-16 14:10:59,990 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:10:59,991 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:10:59,991 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 14:10:59,991 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:11:00,046 - utils.log_utils - INFO - 用户test通过Token认证，访问/me接口
+2025-12-16 14:11:11,033 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:11:11,033 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:11:11,033 - utils.log_utils - ERROR - Token解码失败：Invalid crypto padding
+2025-12-16 14:11:15,384 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:11:15,384 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:11:15,384 - utils.log_utils - ERROR - Token解码失败：Invalid crypto padding
+2025-12-16 14:11:28,899 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:11:28,899 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:11:28,900 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 14:11:28,900 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:13:23,913 - utils.log_utils - INFO - 程序启动
+2025-12-16 14:13:32,513 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:13:32,514 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:13:32,514 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 14:13:32,514 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:13:32,571 - utils.log_utils - INFO - 用户test通过Token认证，访问/me接口
+2025-12-16 14:13:33,769 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:13:33,769 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:13:33,769 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 14:13:33,769 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:13:33,841 - utils.log_utils - INFO - 用户test通过Token认证，访问/me接口
+2025-12-16 14:13:37,436 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:13:37,437 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:13:37,437 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 14:13:37,437 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:13:37,515 - utils.log_utils - INFO - 入参: 3a07550e-50a7-49de-aef9-6ba868712701、3da2f1831e754a26ae548f29c1a00d2b、000001.SZ
+2025-12-16 14:14:39,705 - utils.log_utils - INFO - 程序启动
+2025-12-16 14:14:40,498 - utils.log_utils - INFO - 程序启动
+2025-12-16 14:14:55,650 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:14:55,651 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:14:55,651 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 14:14:55,651 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:14:55,753 - utils.log_utils - INFO - 入参: 4801ec6821244d7b98142aac2cfd9cb6、3da2f1831e754a26ae548f29c1a00d2b、000001.SZ
+2025-12-16 14:16:25,349 - utils.log_utils - INFO - 程序启动
+2025-12-16 14:18:00,553 - utils.log_utils - INFO - 接收到的Token（前10位）：eyJhbGciOi...
+2025-12-16 14:18:00,553 - utils.log_utils - INFO - 开始解码Token
+2025-12-16 14:18:00,555 - utils.log_utils - INFO - payload类型: <class 'str'>
+2025-12-16 14:18:00,555 - utils.log_utils - INFO - 解码得到的user_id: 3da2f1831e754a26ae548f29c1a00d2b，类型: <class 'str'>
+2025-12-16 14:27:37,105 - utils.log_utils - INFO - 程序启动
