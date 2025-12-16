@@ -2,7 +2,7 @@
 Author: mengliner 1219948661@qq.com
 Date: 2025-12-13 14:44:28
 LastEditors: mengliner 1219948661@qq.com
-LastEditTime: 2025-12-16 14:07:33
+LastEditTime: 2025-12-16 15:44:11
 FilePath: \AutoStockTrading\db\__init__.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
@@ -59,6 +59,21 @@ CREATE TABLE IF NOT EXISTS favorite (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 """
 
+
+# 任务记录表SQL（已在之前创建，此处仅保留代码供参考）
+TASK_RECORD_TABLE_SQL = """
+CREATE TABLE IF NOT EXISTS task_record (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task_id VARCHAR(50) UNIQUE NOT NULL COMMENT '任务唯一ID',
+    task_name VARCHAR(50) NOT NULL COMMENT '任务名称',
+    start_time DATETIME NOT NULL COMMENT '任务开始时间',
+    end_time DATETIME COMMENT '任务结束时间',
+    status VARCHAR(20) NOT NULL COMMENT '任务状态：pending/running/completed/failed',
+    error_msg TEXT COMMENT '任务失败错误信息',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '记录创建时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='定时任务执行记录表';
+"""
+
 def create_all_tables(mysql_client):
     """
     统一创建所有数据表（供外部调用）
@@ -69,6 +84,7 @@ def create_all_tables(mysql_client):
         mysql_client.create_table("daily_k", DAILY_K_TABLE_SQL)
         mysql_client.create_table("user", USER_TABLE_SQL)
         mysql_client.create_table("favorite", FAVORITE_TABLE_SQL)
+        mysql_client.create_table("task_record", TASK_RECORD_TABLE_SQL)
         print("✅ 所有数据表创建/检查完成")
     except Exception as e:
         raise Exception(f"❌ 创建数据表失败: {e}")
