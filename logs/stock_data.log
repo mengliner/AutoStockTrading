@@ -21821,3 +21821,9 @@ Index: []
 2025-12-15 15:44:43,616 - utils.log_utils - INFO - 程序启动
 2025-12-15 15:44:43,893 - utils.log_utils - INFO - 成功读取CSV文件：F:\Download\tushare_stock_basic_20251215134515.csv，共5457行数据
 2025-12-15 15:44:47,101 - utils.log_utils - INFO - ✅ CSV数据写入stock_basic完成（文件：F:\Download\tushare_stock_basic_20251215134515.csv）
+2025-12-15 16:54:50,880 - utils.log_utils - INFO - 程序启动
+2025-12-15 16:54:52,160 - utils.log_utils - INFO - 程序启动
+2025-12-15 21:58:28,029 - utils.log_utils - INFO - 程序启动
+2025-12-15 21:58:29,270 - utils.log_utils - INFO - 程序启动
+2025-12-16 00:48:13,143 - utils.log_utils - INFO - 程序启动
+2025-12-16 00:48:17,119 - utils.log_utils - INFO - 程序启动
