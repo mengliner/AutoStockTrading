@@ -2,7 +2,7 @@
 Author: mengliner 1219948661@qq.com
 Date: 2025-12-15 16:37:15
 LastEditors: mengliner 1219948661@qq.com
-LastEditTime: 2025-12-16 10:44:50
+LastEditTime: 2025-12-16 10:50:25
 FilePath: \AutoStockTrading\api\auth.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
@@ -63,7 +63,9 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         # 新增日志：开始解码Token
         logger.info("开始解码Token")
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        user_id: str = payload.get("sub")
+        a=payload.get("sub")
+        logger.info(f"payload类型: {type(a)}")
+        user_id: str = str(payload.get("sub"))
         # 新增日志：记录解码得到的user_id
         logger.info(f"解码得到的user_id: {user_id}，类型: {type(user_id)}")
         if user_id is None:
