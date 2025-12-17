@@ -2,7 +2,7 @@
 Author: mengliner 1219948661@qq.com
 Date: 2025-12-13 14:44:28
 LastEditors: mengliner 1219948661@qq.com
-LastEditTime: 2025-12-16 15:44:11
+LastEditTime: 2025-12-17 09:09:12
 FilePath: \AutoStockTrading\db\__init__.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
@@ -74,6 +74,25 @@ CREATE TABLE IF NOT EXISTS task_record (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='定时任务执行记录表';
 """
 
+
+# 通用定时任务配置表（与业务解耦）
+SCHEDULER_JOB_TABLE_SQL = """
+CREATE TABLE IF NOT EXISTS scheduler_job (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    job_id VARCHAR(50) UNIQUE NOT NULL,  # 任务唯一标识
+    job_name VARCHAR(100) NOT NULL,      # 任务名称
+    job_handler VARCHAR(100) NOT NULL,   # 任务处理函数路径（如：data.tushare_client.fetch_stock_basic）
+    cron_expression VARCHAR(50) NOT NULL, # Cron表达式
+    job_params JSON,                     # 任务参数（JSON格式，灵活扩展）
+    start_date DATE,                     # 开始日期
+    end_date DATE,                       # 结束日期
+    is_enabled BOOLEAN DEFAULT TRUE,     # 是否启用
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+"""
+
+
 def create_all_tables(mysql_client):
     """
     统一创建所有数据表（供外部调用）
@@ -85,6 +104,7 @@ def create_all_tables(mysql_client):
         mysql_client.create_table("user", USER_TABLE_SQL)
         mysql_client.create_table("favorite", FAVORITE_TABLE_SQL)
         mysql_client.create_table("task_record", TASK_RECORD_TABLE_SQL)
+        mysql_client.create_table("scheduler_job", SCHEDULER_JOB_TABLE_SQL)
         print("✅ 所有数据表创建/检查完成")
     except Exception as e:
         raise Exception(f"❌ 创建数据表失败: {e}")

@@ -21996,3 +21996,62 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-12-16 15:46:13,825 - utils.log_utils - INFO - 程序启动
 2025-12-16 15:50:30,779 - utils.log_utils - INFO - 程序启动
 2025-12-16 15:50:48,587 - utils.log_utils - INFO - 程序启动
+2025-12-16 16:22:35,502 - utils.log_utils - INFO - 程序启动
+2025-12-16 16:23:37,758 - utils.log_utils - INFO - 程序启动
+2025-12-16 16:24:50,066 - utils.log_utils - INFO - 程序启动
+2025-12-16 16:24:50,336 - utils.log_utils - INFO - 任务注册成功: sync_yesterday_daily_k
+2025-12-16 16:24:50,336 - utils.log_utils - INFO - ⏰ 定时任务添加成功：sync_yesterday_daily_k（间隔：3600秒）
+2025-12-16 16:24:50,337 - utils.log_utils - INFO - ✅ 调度器启动成功
+2025-12-16 16:24:50,337 - utils.log_utils - INFO - 任务开始执行: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765873490)
+2025-12-16 16:24:50,337 - utils.log_utils - INFO - ⏰ 定时任务触发：sync_yesterday_daily_k（任务ID：sync_yesterday_daily_k_1765873490）
+2025-12-16 16:24:50,337 - utils.log_utils - INFO - ✅ 定时任务初始化完成
+2025-12-16 16:24:50,338 - utils.log_utils - INFO - 📊 开始执行前一日日K同步任务：今日20251216，同步20251215的数据
+2025-12-16 16:24:50,338 - utils.log_utils - INFO - 🚀 股票数据分析系统启动中...
+2025-12-16 16:25:10,677 - utils.log_utils - INFO - 📋 共需同步3472只股票的20251215日K数据
+2025-12-16 16:41:00,091 - utils.log_utils - WARNING - ⚠️ 002166.SZ在20251215无交易数据
+2025-12-16 16:41:12,307 - utils.log_utils - WARNING - ⚠️ 002175.SZ在20251215无交易数据
+2025-12-16 16:53:56,055 - utils.log_utils - WARNING - ⚠️ 002769.SZ在20251215无交易数据
+2025-12-16 16:55:40,886 - utils.log_utils - WARNING - ⚠️ 002853.SZ在20251215无交易数据
+2025-12-16 16:58:08,524 - utils.log_utils - WARNING - ⚠️ 002969.SZ在20251215无交易数据
+2025-12-16 17:01:07,640 - utils.log_utils - WARNING - ⚠️ 600079.SH在20251215无交易数据
+2025-12-16 17:03:43,185 - utils.log_utils - ERROR - ❌ 同步600168.SH失败：获取600168.SH日K数据失败: HTTPConnectionPool(host='api.tushare.pro', port=80): Read timed out. (read timeout=30)
+2025-12-16 17:15:07,386 - utils.log_utils - WARNING - ⚠️ 600730.SH在20251215无交易数据
+2025-12-16 17:16:36,844 - utils.log_utils - WARNING - ⚠️ 600800.SH在20251215无交易数据
+2025-12-16 17:20:36,184 - utils.log_utils - WARNING - ⚠️ 601059.SH在20251215无交易数据
+2025-12-16 17:21:45,328 - utils.log_utils - WARNING - ⚠️ 601198.SH在20251215无交易数据
+2025-12-16 17:24:53,289 - utils.log_utils - WARNING - 任务sync_yesterday_daily_k已在运行中 (任务ID: sync_yesterday_daily_k_1765873490)，本次调用被丢弃
+2025-12-16 17:24:53,289 - utils.log_utils - INFO - ⏰ 定时任务触发：sync_yesterday_daily_k（任务ID：sync_yesterday_daily_k_1765873490）
+2025-12-16 17:25:14,393 - utils.log_utils - WARNING - ⚠️ 601995.SH在20251215无交易数据
+2025-12-16 17:50:05,166 - utils.log_utils - INFO - 📊 20251215日K同步任务完成：成功3460只 | 失败1只 | 总计3472只
+2025-12-16 17:50:05,166 - utils.log_utils - INFO - 任务执行成功: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765873490)
+2025-12-16 18:24:56,208 - utils.log_utils - INFO - 任务开始执行: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765880696)
+2025-12-16 18:24:56,208 - utils.log_utils - INFO - ⏰ 定时任务触发：sync_yesterday_daily_k（任务ID：sync_yesterday_daily_k_1765880696）
+2025-12-16 18:24:56,208 - utils.log_utils - INFO - 📊 开始执行前一日日K同步任务：今日20251216，同步20251215的数据
+2025-12-16 18:25:13,174 - utils.log_utils - INFO - ✅ 20251215的日K数据已同步（共3460条），无需重复执行
+2025-12-16 18:25:13,175 - utils.log_utils - INFO - 任务执行成功: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765880696)
+2025-12-16 19:24:59,140 - utils.log_utils - INFO - 任务开始执行: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765884299)
+2025-12-16 19:24:59,140 - utils.log_utils - INFO - ⏰ 定时任务触发：sync_yesterday_daily_k（任务ID：sync_yesterday_daily_k_1765884299）
+2025-12-16 19:24:59,141 - utils.log_utils - INFO - 📊 开始执行前一日日K同步任务：今日20251216，同步20251215的数据
+2025-12-16 19:25:15,494 - utils.log_utils - INFO - ✅ 20251215的日K数据已同步（共3460条），无需重复执行
+2025-12-16 19:25:15,495 - utils.log_utils - INFO - 任务执行成功: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765884299)
+2025-12-16 20:25:02,078 - utils.log_utils - INFO - 任务开始执行: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765887902)
+2025-12-16 20:25:02,078 - utils.log_utils - INFO - ⏰ 定时任务触发：sync_yesterday_daily_k（任务ID：sync_yesterday_daily_k_1765887902）
+2025-12-16 20:25:02,078 - utils.log_utils - INFO - 📊 开始执行前一日日K同步任务：今日20251216，同步20251215的数据
+2025-12-16 20:25:18,156 - utils.log_utils - INFO - ✅ 20251215的日K数据已同步（共3460条），无需重复执行
+2025-12-16 20:25:18,157 - utils.log_utils - INFO - 任务执行成功: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765887902)
+2025-12-16 21:25:04,934 - utils.log_utils - INFO - 任务开始执行: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765891504)
+2025-12-16 21:25:04,934 - utils.log_utils - INFO - ⏰ 定时任务触发：sync_yesterday_daily_k（任务ID：sync_yesterday_daily_k_1765891504）
+2025-12-16 21:25:04,934 - utils.log_utils - INFO - 📊 开始执行前一日日K同步任务：今日20251216，同步20251215的数据
+2025-12-16 21:25:21,788 - utils.log_utils - INFO - ✅ 20251215的日K数据已同步（共3460条），无需重复执行
+2025-12-16 21:25:21,788 - utils.log_utils - INFO - 任务执行成功: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765891504)
+2025-12-16 22:25:07,766 - utils.log_utils - INFO - 任务开始执行: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765895107)
+2025-12-16 22:25:07,766 - utils.log_utils - INFO - ⏰ 定时任务触发：sync_yesterday_daily_k（任务ID：sync_yesterday_daily_k_1765895107）
+2025-12-16 22:25:07,767 - utils.log_utils - INFO - 📊 开始执行前一日日K同步任务：今日20251216，同步20251215的数据
+2025-12-16 22:25:24,671 - utils.log_utils - INFO - ✅ 20251215的日K数据已同步（共3460条），无需重复执行
+2025-12-16 22:25:24,672 - utils.log_utils - INFO - 任务执行成功: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765895107)
+2025-12-16 23:25:10,638 - utils.log_utils - INFO - 任务开始执行: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765898710)
+2025-12-16 23:25:10,639 - utils.log_utils - INFO - ⏰ 定时任务触发：sync_yesterday_daily_k（任务ID：sync_yesterday_daily_k_1765898710）
+2025-12-16 23:25:10,639 - utils.log_utils - INFO - 📊 开始执行前一日日K同步任务：今日20251216，同步20251215的数据
+2025-12-16 23:25:25,956 - utils.log_utils - INFO - ✅ 20251215的日K数据已同步（共3460条），无需重复执行
+2025-12-16 23:25:25,956 - utils.log_utils - INFO - 任务执行成功: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765898710)
+2025-12-17 10:20:10,524 - utils.log_utils - INFO - 程序启动

@@ -1,3 +1,11 @@
+'''
+Author: mengliner 1219948661@qq.com
+Date: 2025-12-15 16:38:45
+LastEditors: mengliner 1219948661@qq.com
+LastEditTime: 2025-12-17 09:58:01
+FilePath: \AutoStockTrading\main.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 # main.py
 # -*- coding: utf-8 -*-
 import uvicorn
@@ -11,6 +19,8 @@ from utils.scheduler import scheduler
 from utils.task_manager import task_manager
 from service.daily_k_service import sync_yesterday_daily_k
 from utils.log_utils import logger
+from db import create_all_tables
+from db.mysql_client import MySQLClient
 
 # ----------------------
 # 全局退出信号处理
@@ -33,13 +43,14 @@ signal.signal(signal.SIGTERM, handle_shutdown)
 # ----------------------
 def init_tasks():
     """初始化定时任务（项目启动时执行一次）"""
-    # 1. 注册日K同步任务
-    task_manager.register_task("sync_yesterday_daily_k", sync_yesterday_daily_k)
-    # 2. 添加定时任务：每小时执行一次（3600秒）
-    scheduler.add_job("sync_yesterday_daily_k", interval=3600)
-    # 3. 启动调度器
+    # 1. 确保数据表已创建
+    with MySQLClient() as db:
+        create_all_tables(db)
+    
+    # 2. 从数据库加载任务并启动调度器
+    scheduler.load_jobs_from_db()
     scheduler.start()
-    logger.info("✅ 定时任务初始化完成")
+    logger.info("✅ 基于数据库的定时任务调度器已启动")
 
 # ----------------------
 # FastAPI应用初始化
