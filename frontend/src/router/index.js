@@ -1,36 +1,53 @@
-/*
- * @Author: mengliner 1219948661@qq.com
- * @Date: 2025-12-21 14:51:37
- * @LastEditors: mengliner 1219948661@qq.com
- * @LastEditTime: 2025-12-21 14:51:46
- * @FilePath: \AutoStockTrading\frontend\src\router\index.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/store/auth'
 
+// 路由懒加载
+const Login = () => import('@/views/Login.vue')
+const Register = () => import('@/views/Register.vue')
+const Workbench = () => import('@/views/Workbench.vue')
+const Favorites = () => import('@/views/Favorites.vue')
+const StockDetail = () => import('@/views/StockDetail.vue')
+const SystemManagement = () => import('@/views/SystemManagement.vue')
+const UserManagement = () => import('@/views/system/UserManagement.vue')
+const RoleManagement = () => import('@/views/system/RoleManagement.vue')
+const TaskManagement = () => import('@/views/system/TaskManagement.vue')
+const SystemMonitor = () => import('@/views/system/SystemMonitor.vue')
+
 const routes = [
-  { path: '/login', component: () => import('@/views/auth/Login.vue') },
-  { path: '/register', component: () => import('@/views/auth/Register.vue') },
+  { path: '/login', name: 'Login', component: Login, meta: { guest: true } },
+  { path: '/register', name: 'Register', component: Register, meta: { guest: true } },
   {
     path: '/',
-    component: () => import('@/components/Layout.vue'),
+    name: 'Workbench',
+    component: Workbench,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/favorites',
+    name: 'Favorites',
+    component: Favorites,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/stock/:tsCode',
+    name: 'StockDetail',
+    component: StockDetail,
     meta: { requiresAuth: true },
+    props: true
+  },
+  {
+    path: '/system',
+    name: 'SystemManagement',
+    component: SystemManagement,
+    meta: { requiresAuth: true, role: 'admin' },
     children: [
-      { path: '/dashboard', component: () => import('@/views/dashboard/Index.vue') },
-      { path: '/dashboard/stock-query', component: () => import('@/views/dashboard/StockQuery.vue') },
-      { path: '/dashboard/favorites', component: () => import('@/views/dashboard/Favorites.vue') },
-      { 
-        path: '/system', 
-        children: [
-          { path: 'tasks', component: () => import('@/views/system/TaskManager.vue') },
-          { path: 'users', component: () => import('@/views/system/UserManager.vue') },
-          { path: 'roles', component: () => import('@/views/system/RoleManager.vue') },
-          { path: 'monitor', component: () => import('@/views/system/SystemMonitor.vue') }
-        ]
-      }
+      { path: 'users', name: 'UserManagement', component: UserManagement },
+      { path: 'roles', name: 'RoleManagement', component: RoleManagement },
+      { path: 'tasks', name: 'TaskManagement', component: TaskManagement },
+      { path: 'monitor', name: 'SystemMonitor', component: SystemMonitor }
     ]
-  }
+  },
+  { path: '/:pathMatch(.*)*', redirect: '/' }
 ]
 
 const router = createRouter({
@@ -41,11 +58,27 @@ const router = createRouter({
 // 路由守卫
 router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
-  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+  const isAuthenticated = authStore.isAuthenticated
+
+  // 未登录用户只能访问登录和注册页
+  if (to.meta.requiresAuth && !isAuthenticated) {
     next('/login')
-  } else {
-    next()
+    return
   }
+
+  // 已登录用户不能访问登录和注册页
+  if (to.meta.guest && isAuthenticated) {
+    next('/')
+    return
+  }
+
+  // 管理员权限控制
+  if (to.meta.role && authStore.user?.role !== to.meta.role) {
+    next('/')
+    return
+  }
+
+  next()
 })
 
 export default router

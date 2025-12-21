@@ -1,3 +1,11 @@
+/*
+ * @Author: mengliner 1219948661@qq.com
+ * @Date: 2025-12-15 16:47:49
+ * @LastEditors: mengliner 1219948661@qq.com
+ * @LastEditTime: 2025-12-21 15:10:50
+ * @FilePath: \AutoStockTrading\frontend\src\api\request.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 import axios from 'axios'
 import { useAuthStore } from '@/store/auth'
 
