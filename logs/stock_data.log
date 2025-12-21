@@ -22061,3 +22061,10 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-12-17 10:37:23,203 - utils.log_utils - INFO - 定时任务调度器已启动
 2025-12-17 10:37:23,203 - utils.log_utils - INFO - ✅ 基于数据库的定时任务调度器已启动
 2025-12-17 10:37:23,203 - utils.log_utils - INFO - 🚀 股票数据分析系统启动中...
+2025-12-21 14:56:54,217 - utils.log_utils - INFO - 程序启动
+2025-12-21 14:56:54,765 - utils.log_utils - ERROR - 加载任务失败 sync_daily_k: CronTrigger.__init__() got an unexpected keyword argument 'cron_expression'
+2025-12-21 14:56:55,070 - utils.log_utils - ERROR - 加载任务失败 sync_daily_k: CronTrigger.__init__() got an unexpected keyword argument 'cron_expression'
+2025-12-21 14:56:55,070 - apscheduler.scheduler - INFO - Scheduler started
+2025-12-21 14:56:55,071 - utils.log_utils - INFO - 定时任务调度器已启动
+2025-12-21 14:56:55,071 - utils.log_utils - INFO - ✅ 基于数据库的定时任务调度器已启动
+2025-12-21 14:56:55,071 - utils.log_utils - INFO - 🚀 股票数据分析系统启动中...
