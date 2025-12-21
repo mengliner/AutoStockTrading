@@ -1,11 +1,6 @@
-'''
-Author: mengliner 1219948661@qq.com
-Date: 2025-12-16 15:00:19
-LastEditors: mengliner 1219948661@qq.com
-LastEditTime: 2025-12-17 09:40:45
-FilePath: \AutoStockTrading\utils\scheduler.py
-Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
-'''
+# utils/scheduler.py
+# -*- coding: utf-8 -*-
+from utils.log_utils import logger
 from apscheduler.schedulers.background import BackgroundScheduler
 from db.mysql_client import MySQLClient
 from db.scheduler_client import SchedulerJobClient
@@ -13,8 +8,6 @@ import logging
 import importlib
 import json
 from typing import Dict
-
-logger = logging.getLogger(__name__)
 
 class DatabaseScheduler:
     def __init__(self):

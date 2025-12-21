@@ -1,7 +1,6 @@
 
 #### 二、定时任务数据库操作层
-新建 `db/scheduler_client.py`
-```python
+# -*- coding: utf-8 -*-
 from typing import List, Dict, Optional
 from db.mysql_client import MySQLClient
 import json

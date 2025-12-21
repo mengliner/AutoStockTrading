@@ -22055,3 +22055,9 @@ AttributeError: module 'bcrypt' has no attribute '__about__'
 2025-12-16 23:25:25,956 - utils.log_utils - INFO - ✅ 20251215的日K数据已同步（共3460条），无需重复执行
 2025-12-16 23:25:25,956 - utils.log_utils - INFO - 任务执行成功: sync_yesterday_daily_k (任务ID: sync_yesterday_daily_k_1765898710)
 2025-12-17 10:20:10,524 - utils.log_utils - INFO - 程序启动
+2025-12-17 10:33:49,084 - utils.log_utils - INFO - 程序启动
+2025-12-17 10:37:22,585 - utils.log_utils - INFO - 程序启动
+2025-12-17 10:37:23,202 - apscheduler.scheduler - INFO - Scheduler started
+2025-12-17 10:37:23,203 - utils.log_utils - INFO - 定时任务调度器已启动
+2025-12-17 10:37:23,203 - utils.log_utils - INFO - ✅ 基于数据库的定时任务调度器已启动
+2025-12-17 10:37:23,203 - utils.log_utils - INFO - 🚀 股票数据分析系统启动中...
